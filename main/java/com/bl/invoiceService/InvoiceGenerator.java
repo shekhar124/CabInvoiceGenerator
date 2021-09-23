@@ -16,14 +16,14 @@ public class InvoiceGenerator {
 //		return totalFare;                     //refacter return statement by match.max
 	}
 
-	public double calculateFare(Ride[] rides) {
+	public InvoiceSummary calculateFare(Ride[] rides) {
 
 		double totalfare = 0;
 
 		for (Ride ride : rides) {
 			totalfare += this.calculateFare(ride.distance, ride.time);
 		}
-		return totalfare;
+		return new InvoiceSummary(rides.length, totalfare);
 
 	}
 

@@ -33,11 +33,37 @@ public class invoiceServiceTest {
 	}
 
 	@Test
-	public void givenMultipleRidesShouldReturnTotalFare() {
+	public void givenMultipleRidesShouldReturnInvoiceSummary() {
 		// InvoiceGenerator invoiceGenerator = new InvoiceGenerator(); refacter
 
 		Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 1) };
-		double fare = invoiceGenerator.calculateFare(rides);
-		Assert.assertEquals(30, fare, 0.0);
+		InvoiceSummary summary = invoiceGenerator.calculateFare(rides);
+		InvoiceSummary expectedinvoiceSummary = new InvoiceSummary(2, 30.0);
+
+		Assert.assertEquals(expectedinvoiceSummary, summary);
 	}
+	@Test
+	public void givenMultipleRidesShouldReturnInvoiceSummaryfail() {
+		// InvoiceGenerator invoiceGenerator = new InvoiceGenerator(); refacter
+
+		Ride[] rides = { new Ride(2.0, 5), new Ride(0.1, 1) };
+		InvoiceSummary summary = invoiceGenerator.calculateFare(rides);
+		InvoiceSummary expectedinvoiceSummary = new InvoiceSummary(2, 20.0);
+
+		Assert.assertEquals(expectedinvoiceSummary, summary);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
