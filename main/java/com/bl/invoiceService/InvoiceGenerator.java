@@ -9,10 +9,11 @@ public class InvoiceGenerator {
 	public double calculateFare(double distance, int time) {
 
 		double totalFare = distance * MINIMUM_COST_PERKM + time * COST_PER_TIME;
-		if (totalFare < MimFare)
-
-			return MimFare;
-		return totalFare;
+		return Math.max(totalFare, MimFare);
+//		if (totalFare < MimFare)
+//
+//			return MimFare;
+//		return totalFare;                     //refacter return statement by match.max
 	}
 
 	public double calculateFare(Ride[] rides) {
